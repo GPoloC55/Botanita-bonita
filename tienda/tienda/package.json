@@ -1,0 +1,10 @@
+{
+  "name": "botanita-bonita",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tienda en línea Botanita Bonita — Fase 1 (sitio + panel admin + checkout sandbox)",
+  "dependencies": {
+    "@netlify/blobs": "^11.1.4"
+  }
+}

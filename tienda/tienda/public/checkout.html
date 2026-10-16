@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Botanita Bonita — Checkout (sandbox)</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e5e5e5;--card:#fff;--ink:#12382b;--mut:#5b6b63;--green:#6dbb2f;--dark:#0f3d2e;--orange:#ff8a1f;--pink:#ff7eb6;--line:#e7e5dc}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Fredoka,system-ui,sans-serif;line-height:1.5}
+header{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;border-bottom:1px solid var(--line);background:#ffffffcc;backdrop-filter:blur(10px);position:sticky;top:0;z-index:1}
+a{color:inherit;text-decoration:none}
+main{max-width:1000px;margin:20px auto;padding:0 20px 40px;display:grid;grid-template-columns:2fr 1fr;gap:16px}
+@media(max-width:800px){main{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:0 4px 14px #0000000d}
+h1{margin:0;font-size:22px}
+h2{margin:0 0 10px;font-size:18px}
+label{display:block;font-weight:600;margin:8px 0 4px}
+input,textarea,select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;font:inherit}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:600px){.row{grid-template-columns:1fr}}
+.opt{display:grid;gap:6px;margin:8px 0}
+.opt label{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:400;display:flex;gap:8px;align-items:center}
+.total{display:flex;justify-content:space-between;font-size:18px;margin:8px 0}
+.btn{background:var(--dark);color:#fff;border:0;padding:12px 18px;border-radius:14px;font-weight:700;font-size:16px}
+.btn[disabled]{opacity:.5}
+#items{display:grid;gap:8px}
+.item{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html"><b>🐻 Botanita Bonita</b> · Volver a la tienda</a>
+</header>
+<main>
+  <div class="card">
+    <h1>Finalizar compra (modo sandbox)</h1>
+    <p style="color:var(--mut)">Fase 2: se conectará Clip (tarjeta/OXXO) y Lalamove. Este paso simula el pedido.</p>
+
+    <h2>Datos de contacto</h2>
+    <div class="row">
+      <div><label for="name">Nombre completo</label><input id="name" placeholder="Ej. Ana López"></div>
+      <div><label for="phone">Teléfono</label><input id="phone" placeholder="Ej. 55 0000 0000"></div>
+    </div>
+    <div><label for="email">Correo electrónico</label><input id="email" type="email" placeholder="tucorreo@ejemplo.com"></div>
+
+    <h2 style="margin-top:14px">Envío o recogida</h2>
+    <div class="opt">
+      <label><input type="radio" name="delivery" value="pickup" checked> Recoger en tienda · Gratis</label>
+      <label><input type="radio" name="delivery" value="lalamove"> Lalamove (mismo día) · $79 (cotización Fase 2)</label>
+      <label><input type="radio" name="delivery" value="paqueteria"> Paquetería (2-4 días) · $99</label>
+    </div>
+    <div id="addrWrap" style="display:none"><label for="address">Dirección de envío</label><textarea id="address" rows="2" placeholder="Calle, número, colonia, CP, ciudad"></textarea></div>
+
+    <h2 style="margin-top:14px">Cupón</h2>
+    <div class="row">
+      <div><input id="coupon" placeholder="Código (ej. BIENVENIDA)"></div>
+      <div><button id="apply" class="btn" style="padding:10px 14px">Aplicar</button></div>
+    </div>
+    <small id="couponMsg" style="color:var(--mut)"></small>
+
+    <h2 style="margin-top:14px">Notas para el pedido</h2>
+    <textarea id="notes" rows="2" placeholder="Indicaciones al momento de entregar/recoger"></textarea>
+    <small style="color:var(--mut);display:block;margin-top:6px">Este es un checkout de prueba (sandbox). No se cobra nada.</small>
+  </div>
+  <div class="card">
+    <h2>Resumen del pedido</h2>
+    <div id="items"></div>
+    <div class="total"><span>Subtotal</span><span id="s">$0</span></div>
+    <div class="total"><span>Envío</span><span id="sh">$0</span></div>
+    <div class="total"><span>Descuento</span><span id="disc" style="color:var(--green)">$0</span></div>
+    <hr style="border:none;border-top:1px solid var(--line);margin:10px 0">
+    <div class="total"><b>Total</b><b id="t">$0</b></div>
+    <button id="pay" class="btn" style="width:100%;margin-top:8px">Crear pedido (sandbox)</button>
+    <small style="color:var(--mut);display:block;margin-top:6px">Al dar clic, se guarda el pedido en el panel de administración.</small>
+  </div>
+</main>
+<script src="assets/checkout.js"></script>
+</body>
+</html>

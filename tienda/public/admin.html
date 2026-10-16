@@ -32,8 +32,9 @@ input,select,textarea{padding:8px 10px;border:1px solid var(--line);border-radiu
     <h2>Acceso admin</h2>
     <p style="color:var(--mut);margin-top:0">Contraseña definida en Netlify</p>
     <input id="pwd" type="password" placeholder="Contraseña" autocomplete="current-password">
-    <button id="loginBtn" class="btn" style="margin-top:8px">Entrar</button>
+    <button id="loginBtn" class="btn" style="margin-top:8px" onclick="doLogin()">Entrar</button>
     <p id="loginErr" style="color:var(--orange);font-size:14px"></p>
+    <p id="status" style="color:var(--mut);font-size:13px;white-space:pre-wrap"></p>
   </div>
 
   <div id="dash" class="hidden">

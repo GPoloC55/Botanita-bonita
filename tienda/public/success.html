@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Botanita Bonita — Pedido creado</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e5e5e5;--card:#fff;--ink:#12382b;--mut:#5b6b63;--green:#6dbb2f;--dark:#0f3d2e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Fredoka,system-ui,sans-serif;line-height:1.5;text-align:center}
+main{max-width:520px;margin:40px auto;padding:0 20px}
+.card{background:var(--card);border:1px solid #e7e5dc;border-radius:20px;padding:24px;box-shadow:0 4px 14px #0000000d}
+h1{margin:0;font-size:24px}
+p{color:var(--mut)}
+.btn{display:inline-block;margin-top:12px;background:var(--dark);color:#fff;padding:12px 18px;border-radius:14px;text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <div style="font-size:40px">✅</div>
+    <h1>Pedido creado (modo sandbox)</h1>
+    <p>Tu pedido fue registrado correctamente.</p>
+    <p><b>No. de pedido:</b> <span id="order"></span><br><b>Total:</b> <span id="total"></span></p>
+    <p style="color:var(--mut)">En la Fase 2 conectaremos Clip para cobrar y Lalamove para agendar el envío. Por ahora es solo una prueba.</p>
+    <a class="btn" href="index.html">Volver a la tienda</a>
+  </div>
+</main>
+<script>
+const sp=new URLSearchParams(location.search);
+document.getElementById("order").textContent=sp.get("order")||"-";
+const t=sp.get("total");
+document.getElementById("total").textContent=t?"$"+Number(t).toLocaleString("es-MX"):"$0";
+</script>
+</body>
+</html>

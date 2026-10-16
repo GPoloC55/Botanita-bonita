@@ -14,7 +14,7 @@ Esta es la versión de Fase 1 lista para desplegarse en **Netlify**: sitio está
 2. En [netlify.com](https://app.netlify.com), selecciona "Add new site → Import an existing project" y conecta tu repo.
 3. Netlify detectará la configuración automáticamente (`publish: public`, funciones en `netlify/functions`).
 4. En "Site configuration → Environment variables", agrega (recomendado):
-   - `ADMIN_PASSWORD` — contraseña para acceder a `/admin` (ej. `botanita123`)
+   - `ADMIN_PASSWORD` — contraseña para acceder a `/admin` (ej. `your-password-here`)
    - `AUTH_SECRET` — una cadena aleatoria para firmar las cookies del admin
 5. Dale "Deploy site". En unos segundos tendrás la URL pública.
 
@@ -35,7 +35,7 @@ Desde el panel puedes:
 Necesitarías `netlify-cli` (requiere Node.js). En este entorno no lo instalamos; el despliegue directo desde Git es suficiente.
 
 ## Notas
-- La contraseña por defecto para admin es `botanita123`. Cámbiala en Environment Variables antes de que el cliente uselo.
+- La contraseña por defecto para admin es `your-password-here`. Cámbiala en Environment Variables antes de que el cliente uselo.
 - Netlify Blobs tiene límite gratuito razonable para una demo/tienda pequeña. Para producción con mucho tráfico, revisar límites de Netlify.
 - Las imágenes subidas desde el admin se guardan como dataURL en el JSON (práctico para Fase 1). Si crecen mucho, conviene cambiar a almacenamiento de imágenes.
 - En Fase 2 agregaremos: llamada real a Clip (API + webhook), cotización/pedido Lalamove, descuentos más avanzados, correos/WhatsApp.
